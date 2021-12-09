@@ -6,24 +6,24 @@
 * */
 
 const todoForm = document.querySelector("form#todo-form");
-let todoInput = todoForm.querySelector("input");
+let InputTodo = todoForm.querySelector("input");
 const todoList = document.querySelector("ul#todos"); // id가 todos인 ul
 let toDos= [];
 
 function inputTodoHandler(event) {
     event.preventDefault(); // form에 submit이 발생하면 기본동작인 새로고침을 막는다.
 
-    const todo = todoInput.value; // input창에 입력된 todo를 들고온다.
+    const todo = InputTodo.value; // input창에 입력된 todo를 들고온다.
     const li = document.createElement("li"); // li 태그를 생성한다.
     li.innerText = todo; // todo 내용을 innerText에 저장한다.
-    todoInput.value = ""; // input창을 비워준다.
+    InputTodo.value = ""; // input창을 비워준다.
 
     const button = document.createElement("button"); // 버튼을 생성한다.
     button.innerText = "✅";
     li.appendChild(button); // append to li
     todoList.appendChild(li); //
 
-    toDos.push(todo);
+    toDos.push(todo); // 배열에 저장
     localStorage.setItem("toDos", toDos);
 
 }
