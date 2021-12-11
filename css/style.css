@@ -1,4 +1,23 @@
 
-.hidden{
+.hidden {
     display: none;
+}
+
+body {
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: whitesmoke;
+    font-size: xxx-large;
+}
+
+#todos li {
+    color: whitesmoke;
+    font-size: x-large;
+}
+
+#weather {
+    color: whitesmoke;
+    font-size: x-large;
 }

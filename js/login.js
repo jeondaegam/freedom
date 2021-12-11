@@ -16,6 +16,12 @@ function onLoginSubmit(event) {
     h1.innerText = `Hello ${username}, How is it going?`;
 }
 
+function sayHello(username) {
+    const greetings = [`Hello ${username}, How is it going?`, `Hello ${username}, How do you feel today?`];
+    //배열은 [] object는 {}
+    h1.innerText = greetings[Math.floor(Math.random()*greetings.length)];
+}
+
 function isUserName() {
     const username = localStorage.getItem(USERNAME_KEY);
     if (username === null) {
@@ -23,7 +29,7 @@ function isUserName() {
         logoutButton.classList.add(HIDDEN_CLASS);
         loginForm.addEventListener("submit", onLoginSubmit);
     } else {
-        h1.innerText = `Hello ${username}, How is it going?`;
+        sayHello(username);
         loginForm.classList.add(HIDDEN_CLASS);
         logoutButton.classList.remove(HIDDEN_CLASS);
     }

@@ -10,13 +10,21 @@
 <body>
 <h1></h1>
 <form id="login-form" class="hidden">
-    <input type="text" placeholder="What is your name?" maxlength="15" required>
+    <label>
+        <input type="text" placeholder="What is your name?" maxlength="15" required>
+    </label>
     <button>Log in</button>
 </form>
 <form id="todo-form">
-    <input type="text" placeholder="What is your todo?" required>
+    <label>
+        <input type="text" placeholder="What is your todo?" required>
+    </label>
 </form>
 <ul id="todos"></ul>
+<div id="weather">
+    <span></span>
+    <span></span>
+</div>
 <button id="logout">Logout</button>
 <script src="js/todo.js"></script>
 <script src="js/login.js"></script>

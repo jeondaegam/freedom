@@ -11,9 +11,9 @@ function paintBackground() {
     const img = document.createElement("img");
     const todayImg = images[Math.floor(Math.random() * images.length)];
     img.src = `img/${todayImg}`;
-
-    console.log(img);
-    document.body.appendChild(img);
+    // document.body.appendChild(img);
+    document.body.style.background = `url(${img.src})`;
 }
+
 
 paintBackground();
