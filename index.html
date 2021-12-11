@@ -9,15 +9,15 @@
 </head>
 <body>
 <h1></h1>
-<form id="loginForm">
-    <input type="text" placeholder="Write your ID">
-    <button>login</button>
+<form id="login-form" class="hidden">
+    <input type="text" placeholder="What is your name?" maxlength="15" required>
+    <button>Log in</button>
 </form>
-
 <form id="todo-form">
     <input type="text" placeholder="What is your todo?" required>
 </form>
 <ul id="todos"></ul>
+<button id="logout">Logout</button>
 <script src="js/todo.js"></script>
 <script src="js/login.js"></script>
 </body>

@@ -1,33 +1,43 @@
-const loginForm = document.querySelector("#loginForm");
-const InputLogin = document.querySelector("#loginForm input");
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const logoutButton = document.querySelector("#logout");
 const h1 = document.querySelector("h1");
 
-// login 창 submit 발생 시
-function loginFormHandler(event) {
+const HIDDEN_CLASS ="hidden";
+const USERNAME_KEY="username";
+
+// login 창 submit 발생 시 => 이미 로그인창이 떠있다는 의미야!!
+function onLoginSubmit(event) {
     event.preventDefault();
-    // const id = loginForm.querySelector("input");
-    // id = input.value;
-    const id = InputLogin.value;
-    localStorage.setItem("id", id);
-
-    loginForm.classList.toggle("hidden");
-    h1.innerText = `Hello ${id}, How is it going?`;
-
+    loginForm.classList.add(HIDDEN_CLASS);
+    logoutButton.classList.remove(HIDDEN_CLASS);
+    const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+    h1.innerText = `Hello ${username}, How is it going?`;
 }
 
-function isUserId() {
-    const id = localStorage.getItem("id");
-
-    if (id !== null) {
-        loginForm.classList.toggle("hidden");
-        h1.innerText = `Hello ${id}, How is it going?`;
-        // console.log(`Hello ${id}`);
+function isUserName() {
+    const username = localStorage.getItem(USERNAME_KEY);
+    if (username === null) {
+        loginForm.classList.remove(HIDDEN_CLASS);
+        logoutButton.classList.add(HIDDEN_CLASS);
+        loginForm.addEventListener("submit", onLoginSubmit);
     } else {
-        console.log("no id");
+        h1.innerText = `Hello ${username}, How is it going?`;
+        loginForm.classList.add(HIDDEN_CLASS);
+        logoutButton.classList.remove(HIDDEN_CLASS);
     }
-
 }
 
-isUserId();
-loginForm.addEventListener("submit", loginFormHandler);
+isUserName();
+loginForm.addEventListener("submit", onLoginSubmit);
 
+function onLogoutClick() {
+    localStorage.removeItem(USERNAME_KEY);
+    loginForm.classList.remove(HIDDEN_CLASS);
+    logoutButton.classList.add(HIDDEN_CLASS);
+    // todoForm.classList.add(HIDDEN_CLASS); 작동 X
+    h1.innerText="";
+}
+
+logoutButton.addEventListener("click", onLogoutClick);
