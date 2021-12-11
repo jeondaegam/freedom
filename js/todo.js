@@ -10,7 +10,36 @@ let InputTodo = todoForm.querySelector("input");
 const todoList = document.querySelector("ul#todos"); // id가 todos인 ul
 let toDos = [];
 
-// to do가 submit되면 todo의 내용을 저장한다.
+// delete todo
+function deleteTodo(event) {
+    const li = event.target.parentElement;
+    li.remove();
+
+    const target = event.target.parentElement.id;
+    localStorage.removeItem(target);
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+}
+
+// 화면에 그려줄 tag 생성
+function paintTodo(newTodoObj) {
+    // new li
+    const li = document.createElement("li");
+    li.id = newTodoObj.id;
+    li.innerText = newTodoObj.todo;
+
+    // add button
+    const button = document.createElement("button"); // 버튼을 생성한다.
+    button.innerText = "✅";
+
+    // finish todo
+    button.addEventListener("click", deleteTodo);
+
+    // append
+    li.appendChild(button);
+    todoList.appendChild(li);
+}
+
+// todo를 local storage에 저장
 function onTodoSubmit(event) {
     event.preventDefault();
 
@@ -25,24 +54,7 @@ function onTodoSubmit(event) {
     localStorage.setItem("toDos", JSON.stringify(newTodoObj));
     toDos.push(newTodoObj);
 
-    // 태그 생성
-    // const li = document.createElement("li");
-    // li.innerText = todo;
-    // li.className = key;
-    // const button = document.createElement("button"); // 버튼을 생성한다.
-    // button.innerText = "✅";
-    //
-    // li.appendChild(button);
-    // todoList.appendChild(li);
-    //
-    //
-    //
-    // button.addEventListener("click", onButtonClick);
-    //
-    // function onButtonClick(event) {
-    //     console.log(event.target.parentElement);
-    //     console.dir(event.target);
-    // }
+    paintTodo(newTodoObj);
 }
 
 //입력창에 to-do를 입력하고 submit이 들어왔을 때
