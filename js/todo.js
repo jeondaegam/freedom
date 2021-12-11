@@ -18,8 +18,8 @@ function deleteTodo(event) {
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
     localStorage.setItem("todos", JSON.stringify(toDos));
     // Q. 왜 localStorage.remove()가 아닌가?
-    // todos는 값이 배열이기 때문에, key인 todos를 삭제하면 배열 전체가 삭제되고,
-    // 배열 전체가 하나의 string으로 저장되어있기때문에 json object내의 id만 select 불가능하다.
+    // todos는 value가 배열이기 때문에, key인 todos를 삭제하면 배열 전체가 삭제되고,
+    // 배열 전체가 하나의 string으로 저장되어있으므로 json object내의 id만 select 불가능하다.
 
 }
 
@@ -59,5 +59,21 @@ function onTodoSubmit(event) {
     localStorage.setItem("todos", JSON.stringify(toDos));   // 2. 배열을 storage에 저장한다.
 }
 
+// page reload
+function isTodoList() {
+    // local check
+    const savedTodos = localStorage.getItem("todos");
+    if (savedTodos !== null) {
+        //json으로 parse
+        const parsedTodos = JSON.parse(savedTodos);
+        // todos =
+        toDos = parsedTodos;
+        console.log(parsedTodos);
+        // paint todo
+        parsedTodos.forEach((todo) => paintTodo(todo));
+    }
+}
+
 //입력창에 to-do를 입력하고 submit이 들어왔을 때
 todoForm.addEventListener("submit", onTodoSubmit);
+isTodoList();
