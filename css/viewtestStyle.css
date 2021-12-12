@@ -1,0 +1,17 @@
+
+.middle{
+    /* 이하 필수 설정 */
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%); text-align: center;
+    /* 이하 꾸밈 설정 */
+    /*background: white;*/
+}
+
+body, html {
+    margin: auto; /* 화면 축소시 스크롤 방지 */
+    background: lightsteelblue;
+}
+
+hr{
+    color: lightsteelblue;
+}
