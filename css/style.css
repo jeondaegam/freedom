@@ -7,9 +7,10 @@ body {
     background-repeat: no-repeat;
 }
 
-h1 {
+.message {
     color: whitesmoke;
-    font-size: xxx-large;
+    font-weight: 400;
+    letter-spacing: -1px;
 }
 
 #todos li {
@@ -20,4 +21,12 @@ h1 {
 #weather {
     color: whitesmoke;
     font-size: x-large;
+}
+
+
+#clock {
+    color: whitesmoke;
+    font-size: 1050%;
+    cursor: default;
+    letter-spacing: -5px;
 }
