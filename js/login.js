@@ -1,7 +1,7 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 const logoutButton = document.querySelector("#logout");
-const h1 = document.querySelector("h1");
+const message = document.querySelector("span.message");
 
 const HIDDEN_CLASS ="hidden";
 const USERNAME_KEY="username";
@@ -13,13 +13,13 @@ function onLoginSubmit(event) {
     logoutButton.classList.remove(HIDDEN_CLASS);
     const username = loginInput.value;
     localStorage.setItem(USERNAME_KEY, username);
-    h1.innerText = `Hello ${username}, How is it going?`;
+    message.innerText = `Hello ${username}, How is it going?`;
 }
 
 function sayHello(username) {
-    const greetings = [`Hello ${username}, How is it going?`, `Hello ${username}, How do you feel today?`];
+    const greetings = [`Hello ${username},\n How is it going?`, `Hello ${username},\n How do you feel today?`];
     //배열은 [] object는 {}
-    h1.innerText = greetings[Math.floor(Math.random()*greetings.length)];
+    message.innerText = greetings[Math.floor(Math.random()*greetings.length)];
 }
 
 function isUserName() {
@@ -43,7 +43,7 @@ function onLogoutClick() {
     loginForm.classList.remove(HIDDEN_CLASS);
     logoutButton.classList.add(HIDDEN_CLASS);
     // todoForm.classList.add(HIDDEN_CLASS); 작동 X
-    h1.innerText="";
+    message.innerText="";
 }
 
 logoutButton.addEventListener("click", onLogoutClick);

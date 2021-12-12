@@ -8,25 +8,25 @@
     <title>Yeoreums Momentum</title>
 </head>
 <body>
-<h1 class ="message"></h1>
-<form id="login-form" class="hidden">
-    <label>
-        <input type="text" placeholder="What is your name?" maxlength="15" required>
-    </label>
-    <button>Log in</button>
-</form>
-<span id="clock"></span>
-<form id="todo-form">
-    <label>
-        <input type="text" placeholder="What is your todo?" required>
-    </label>
-</form>
-<ul id="todos"></ul>
-<div id="weather">
-    <span></span>
-    <span></span>
+<div class="middle">
+        <span class="message"></span>
+        <form id="login-form" class="hidden">
+            <label>
+                <input type="text" placeholder="What is your name?" maxlength="15" required>
+            </label>
+            <button>Log in</button>
+        </form>
+        <span id="clock"></span>
+        <form id="todo-form">
+            <input type="text" placeholder="What is your todo?" required>
+        </form>
+        <ul id="todos"></ul>
+        <div id="weather">
+            <span></span>
+            <span></span>
+        </div>
+        <button id="logout">Logout</button>
 </div>
-<button id="logout">Logout</button>
 <script src="js/todo.js"></script>
 <script src="js/login.js"></script>
 <script src="js/background.js"></script>
