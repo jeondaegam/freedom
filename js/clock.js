@@ -13,4 +13,5 @@ function HelloMessage() {
     clock.innerText = time;
 }
 
+HelloMessage(); // 페이지 뜨자마자 시간이 나타나도록 처음 1번 미리 호출
 setInterval(HelloMessage, 1000);
