@@ -1,0 +1,40 @@
+
+/* element 중앙정렬 - 반응형 */
+.middle{
+    /* 이하 필수 설정 */
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%); text-align: center;
+    /* 이하 꾸밈 설정 */
+    /*background: white;*/
+}
+
+body, html {
+    margin: auto; /* 화면 축소시 스크롤 방지 */
+    background: lightsteelblue;
+}
+/* ************************* */
+
+
+
+/* 이하 꾸밈 설정 */
+
+hr{
+    color: lightsteelblue;
+}
+
+#message{
+    cursor: default;
+    /*cursor: pointer;*/
+    color: white;
+    font-size: 600%;
+    font-weight: bold;
+    letter-spacing: -3px;
+
+}
+#clock {
+    color: whitesmoke;
+    font-size: 1050%;
+    letter-spacing: -5px;
+    padding: -100px;
+}
+
