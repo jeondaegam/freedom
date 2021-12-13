@@ -4,7 +4,8 @@ const images = [
     "2.jpg",
     "3.jpg",
     "4.jpg",
-    "5.jpg"
+    "5.jpg",
+    "6.jpg",
 ];
 
 function paintBackground() {

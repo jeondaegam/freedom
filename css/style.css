@@ -45,6 +45,7 @@ element.style {
     background: transparent;
     width: 50%;
     line-height: 40px;
+    outline: none; /* input box 클릭 시 나오는 border 지우기*/
 }
 
 input::placeholder {
