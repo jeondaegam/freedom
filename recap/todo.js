@@ -18,7 +18,7 @@ function onTodoSubmit(event) {
     // define li
     const li = document.createElement("li");
     li.innerText = todoObj.todo;
-    li.className= todoObj.id;
+    li.id = todoObj.id;
 
     // define button
     const button = document.createElement("button");
@@ -35,14 +35,19 @@ function onTodoSubmit(event) {
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-
+// * 어려움 *
 function deleteTodo(event) {
-    console.dir(event);
-    console.log(event);
-    console.log(event.target.parentElement);
-    // todo
-    console.log(event.target.parentElement.className);
+    // remove li
+    const li = event.target.parentElement;
+    li.remove();
 
+    console.log(`good job you made it! 👍`);
+
+    // define new array
+    todos = todos.filter((item) => item.id !== parseInt(li.id));
+
+    // remove the element of localstorage
+    localStorage.setItem("todos", JSON.stringify(todos));
 
 }
 
@@ -58,19 +63,25 @@ function isTodoList() {
     // todos array에 저장한다.
     // for each를 돈다.
     // li로 그려준다.
+
     if (savedTodos !== null) {
-        // const parsedTodos = JSON.parse(savedTodos);
-        // todos = parsedTodos;
+        const parsedTodos = JSON.parse(savedTodos);
+        todos = parsedTodos;
+        console.log(todos);
 
-        console.log(savedTodos);
+        todos.forEach((item) => {
+            const li = document.createElement("li");
+            li.innerText = item.todo;
+            li.id = item.id;
+            const button = document.createElement("button");
+            button.innerText = "✅";
+
+            li.appendChild(button);
+            todoList.appendChild(li);
+            button.addEventListener("click", deleteTodo);
+        });
     }
 
-
-    if (todos) {
-        const li = document.createElement("li");
-        li.innerText = todos;
-        todoList.appendChild(li);
-    }
 }
 
 // 페이지 새로고침 시 저장되어있는 todo를 가져오기.
