@@ -39,3 +39,5 @@ parsedTodos.forEach((todo) => paintTodo(todo));
 
 
 ### 새로운 Branch를 만들고 branch에서 작업했습니다
+
+## 새로운 브랜치 branch2를 만들고 두번째 작업
