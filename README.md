@@ -36,3 +36,6 @@ parsedTodos.forEach((todo) => paintTodo(todo));
             button.addEventListener("click", deleteTodo);
         });
 ```
+
+
+### 새로운 Branch를 만들고 branch에서 작업했습니다
